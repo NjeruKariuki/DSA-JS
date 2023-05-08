@@ -34,6 +34,24 @@ class LinkedList{
 	getSize() {
 		return this.size;
 	}
+	//insert method
+	insert(value, index) {
+		if(index < 0 || index > this.size) {
+			return
+		}
+		if(index === 0) {
+			this.prepend(value);
+		} else {
+			const node = new Node(value);
+			let prev = this.head;
+			for(let i=0;i < index-1; i++) {
+				prev = prev.next;
+			}
+			node.next = prev.next;
+			prev.next = node;
+			this.size++
+		}
+	}
 	//add node at back
 	append(value){
 		const node = new Node(value);
@@ -81,10 +99,9 @@ class LinkedList{
 const list = new LinkedList();
 list.prepend(10);
 list.prepend(20);
-console.log('List is empty? ', list.isEmpty());
-console.log('list size:', list.getSize());
-list.print();
 list.prepend(40);
 list.prepend(80);
 list.append(90);
+list.insert(67, 4);
 list.print();
+
