@@ -34,9 +34,24 @@ class LinkedList{
 	getSize() {
 		return this.size;
 	}
+	//add node at front
+	prepend(value) {
+		const node = new Node(value);
+		//when list is empty, add node to head, increment size by 1
+		if(this.isEmpty()) {
+			this.head = node;
+		} else {
+			node.next = this.head;
+			this.head = node;
+		}
+		this.size++;
+	}
 }
 
 
 const list = new LinkedList();
+list.prepend(10);
+list.prepend(20);
 console.log('List is empty? ', list.isEmpty());
 console.log('list size:', list.getSize());
+
