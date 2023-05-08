@@ -34,6 +34,21 @@ class LinkedList{
 	getSize() {
 		return this.size;
 	}
+	//add node at back
+	append(value){
+		const node = new Node(value);
+		if(this.isEmpty()){
+			this.head = node;
+		} else {
+			let prev = this.head;
+			while(prev.next){
+				prev = prev.next;
+			}
+			prev.next = node;
+		}
+		this.size++;
+	}
+
 	//add node at front
 	prepend(value) {
 		const node = new Node(value);
@@ -71,4 +86,5 @@ console.log('list size:', list.getSize());
 list.print();
 list.prepend(40);
 list.prepend(80);
+list.append(90);
 list.print();
