@@ -46,6 +46,20 @@ class LinkedList{
 		}
 		this.size++;
 	}
+	print() {
+		if(this.isEmpty()) {
+			console.log("list is empty");
+		} else {
+			let curr = this.head;
+			let listValues = '';
+			while(curr) {
+				listValues+= `${curr.value} `;
+				curr = curr.next;
+			}
+			console.log(listValues);
+		}
+
+	}
 }
 
 
@@ -54,4 +68,7 @@ list.prepend(10);
 list.prepend(20);
 console.log('List is empty? ', list.isEmpty());
 console.log('list size:', list.getSize());
-
+list.print();
+list.prepend(40);
+list.prepend(80);
+list.print();
